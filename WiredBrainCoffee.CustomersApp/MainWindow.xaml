@@ -1,0 +1,40 @@
+﻿<Window x:Class="WiredBrainCoffee.CustomersApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:WiredBrainCoffee.CustomersApp.Controls" 
+        xmlns:view="clr-namespace:WiredBrainCoffee.CustomersApp.View"
+        mc:Ignorable="d"
+        d:DesignWidth="700" d:DesignHeight="600" Title="MainWindow" Height="450" Width="800" FontSize="20">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <!--Main Menu-->
+        <Menu FontSize="20">
+            <MenuItem Header="_View">
+                <MenuItem Header="_Customers"></MenuItem>
+                <MenuItem Header="_Products"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <!--Header-->
+        <controls:HeaderControl Grid.Row="1"/>
+
+        <!--Customer View-->
+        <view:CustomersView Grid.Row="2"/>
+
+
+        <!--Statusbar-->
+        <StatusBar Grid.Row="3">
+            <StatusBarItem FontSize="20" Content=" (c) Wired Brain Coffee"></StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
