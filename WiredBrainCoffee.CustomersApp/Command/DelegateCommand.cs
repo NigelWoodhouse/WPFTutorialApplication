@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WiredBrainCoffee.CustomersApp.ViewModel;
 
 namespace WiredBrainCoffee.CustomersApp.Command
 {
@@ -11,13 +12,18 @@ namespace WiredBrainCoffee.CustomersApp.Command
     {
         private readonly Action<object?> _execute;
         private readonly Func<object?, bool>? _canExecute;
-
+        private ViewModelBase selectedViewModel;
 
         public DelegateCommand(Action<object?> execute, Func<object?, bool>? canExecute = null)
         {
             ArgumentNullException.ThrowIfNull(execute);
             _execute = execute;
             _canExecute = canExecute;
+        }
+
+        public DelegateCommand(ViewModelBase selectedViewModel)
+        {
+            this.selectedViewModel = selectedViewModel;
         }
 
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
