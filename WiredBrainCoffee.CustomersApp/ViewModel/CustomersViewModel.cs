@@ -35,6 +35,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             {
                 _selectedCustomer = value;
                 RaisePropertyChanged();
+                RaisePropertyChanged(nameof(IsCustomerSelected));
                 DeleteCommand.RaiseCanExecuteChanged();
             }
         }
@@ -90,6 +91,7 @@ namespace WiredBrainCoffee.CustomersApp.ViewModel
             }
         }
 
+        public bool IsCustomerSelected => SelectedCustomer is not null;
         private bool CanDelete(object? paramenter) => SelectedCustomer is not null;
 
         private void MoveNavigation(object? paramenter)

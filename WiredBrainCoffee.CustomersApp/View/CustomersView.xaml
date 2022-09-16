@@ -41,7 +41,8 @@
         </Grid>
 
         <!--Customer deatils-->
-        <StackPanel Grid.Column="1" Margin="10">
+        <StackPanel Grid.Column="1" Margin="10"
+                    Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
             <Label>Firstname:</Label>
             <TextBox Text="{Binding SelectedCustomer.FirstName,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Label>Lastname:</Label>
